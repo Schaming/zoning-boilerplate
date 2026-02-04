@@ -1,0 +1,31 @@
+build
+dist / media
+node_modules
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.command
+.next
+.vercel
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Payload default media upload directory
+public/media/
+
+public/robots.txt
+public/sitemap*.xml
+
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

@@ -1,0 +1,21 @@
+# Node/Next build artifacts
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# Local databases & environment files
+*.sqlite3
+zoningbylaw.db
+.env
+*.env.*
+
+# IDE & system files
+.vscode/
+.DS_Store
+*.log
+
+# Test artifacts
+coverage/
+playwright-report/

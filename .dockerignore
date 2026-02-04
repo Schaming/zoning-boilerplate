@@ -1,0 +1,26 @@
+node_modules
+.next
+.git
+.gitignore
+*.md
+.env
+.env.*
+npm-debug.log
+.DS_Store
+coverage
+.vscode
+.idea
+*.log
+dist
+build
+out
+playwright-report
+test-results
+.turbo
+*.db
+*.sqlite3
+zoningbylaw.db
+zoningbylaw copy.db
+b2_bylaw.sqlite3
+dump.sql
+turso-dump.sql
