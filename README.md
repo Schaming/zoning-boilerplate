@@ -467,6 +467,8 @@ Windows Setup (in git Bash)
 
 -NPM Install in the root directory  
 
+-in bash type "npm config set script-shell "C:\Program Files\Git\bin\bash.exe""
+
 -Make sure docker is running  
 
 -Type in “./scripts/start-db.sh” // starts database  
