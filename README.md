@@ -22,6 +22,7 @@ Core features:
 - [Redirects](#redirects)
 - [Jobs and Scheduled Publishing](#jobs-and-scheduled-publish)
 - [Website](#website)
+- [Windows Dev Environment Setup](#WDE)
 
 ## Quick Start
 
@@ -459,3 +460,13 @@ You can also deploy your app manually, check out the [deployment documentation](
 ## Questions
 
 If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+
+### WDE
+
+Windows Setup (in git Bash)
+NPM Install in the root directory
+Make sure docker is running
+Type in “./scripts/start-db.sh” // starts database
+then run “npm run build” // starts application
+to STOP the database “./scripts/stop-db.sh”
+
