@@ -463,10 +463,15 @@ If you have any issues or questions, reach out to us on [Discord](https://discor
 
 ### WDE
 
-Windows Setup (in git Bash)
--NPM Install in the root directory
--Make sure docker is running
--Type in “./scripts/start-db.sh” // starts database
--then run “npm run build” // starts application
+Windows Setup (in git Bash)  
+
+-NPM Install in the root directory  
+
+-Make sure docker is running  
+
+-Type in “./scripts/start-db.sh” // starts database  
+
+-then run “npm run build” // starts application  
+
 -to STOP the database “./scripts/stop-db.sh”
 
