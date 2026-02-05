@@ -1,4 +1,4 @@
-// I THINK THIS FILE IS REDUNDANT USE import-definitions.ts in the SCRIPTS FOLDER, WE SHOULD DELETE THIS FROM PRODUCTION
+// This file doesn't work right now unless you move both the file and the JSON to the root directory. 
 // run this import twice once for the definitions content then again for the definitions
 import 'dotenv/config';
 import fs from 'fs';
