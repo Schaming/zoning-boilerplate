@@ -22,7 +22,7 @@ Core features:
 - [Redirects](#redirects)
 - [Jobs and Scheduled Publishing](#jobs-and-scheduled-publish)
 - [Website](#website)
-- [Windows Dev Environment Setup](#WDE)
+- [Windows Dev Environment Setup](#windows-development-environment-setup)
 
 ## Quick Start
 
