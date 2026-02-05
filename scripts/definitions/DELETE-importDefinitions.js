@@ -1,3 +1,4 @@
+// I THINK THIS FILE IS REDUNDANT USE import-definitions.ts in the SCRIPTS FOLDER, WE SHOULD DELETE THIS FROM PRODUCTION
 // run this import twice once for the definitions content then again for the definitions
 import 'dotenv/config';
 import fs from 'fs';
