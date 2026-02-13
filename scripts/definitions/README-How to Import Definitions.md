@@ -1,8 +1,8 @@
-# BASIC WORKFLOW SUMMARY
-1. Put Definitions PDFS in PDFS folder 
+# BASIC WORKFLOW SUMMARY 
+1. Put Definitions PDFS in PDFS folder (You can consolidate PDFs if there are multiple or you can consolidate at the cleaned JSON step)
 2. PROCESS 1: Steps 1-3 OR PROCESS 2: Step 1  
 3. Fix any errors in cleaned JSON Manually 
-4. Upload cleaned JSON to CMS with import-definitions.ts
+4. Upload cleaned JSON to CMS with import-definitions.ts (you may need to rename the import file to make this work)
 5. Manually add extracted images to database (we can work on automating this later)
 
 # CivicZone: Definition Import Pipeline
