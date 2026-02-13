@@ -463,7 +463,7 @@ If you have any issues or questions, reach out to us on [Discord](https://discor
 
 ### Windows Development Environment Setup
 
-Windows Setup (in git Bash)  
+Windows Setup (<span style="color:red;">in git Bash</span>)  
 
 -NPM Install in the root directory  
 
