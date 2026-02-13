@@ -1,7 +1,15 @@
+# BASIC WORKFLOW SUMMARY
+1. Put Definitions PDFS in PDFS folder 
+2. PROCESS 1: Steps 1-3 OR PROCESS 2: Step 1  
+3. Fix any errors in cleaned JSON Manually 
+4. Upload cleaned JSON to CMS with import-definitions.ts
+5. Manually add extracted images to database (we can work on automating this later)
+
 # CivicZone: Definition Import Pipeline
 
 This repository contains the three-stage pipeline used to convert raw PDF zoning bylaw definitions into structured, cross-linked definitions within the Payload CMS.
 ---
+PROCESS 1
 **NOTE run-all.py can do the first 3 steps**
 1. **PDF Source** -> [input2JSON.py] 
 2. **Import Images** -> [smart-img-rip.py]
@@ -9,6 +17,7 @@ This repository contains the three-stage pipeline used to convert raw PDF zoning
 4. **Upload the clean JSON to the database** -> [import-definitions.ts] 
 5. **Payload CMS (Live)**
 
+PROCESS 2
 **Steps if you want to use run-all.py**
 1. **PDF Source -> Import Images - > Clean up JSON** -> [run-all.py]
 2. **Upload the clean JSON to the database** -> [import-definitions.ts] 
