@@ -68,6 +68,22 @@ export function ReferenceDrawer() {
                       <InteractiveLexicalRenderer data={data.content} />
                     </div>
                   )}
+                  {/* Claude: Added image display for definitions */}
+                  {!loading && !error && data.images && data.images.length > 0 && (
+                    <div className="space-y-2 border-t pt-3">
+                      <p className="text-xs font-medium text-gray-600 uppercase tracking-wide">Images</p>
+                      <div className="space-y-2">
+                        {data.images.map((image: any, index: number) => (
+                          <img
+                            key={image.id || index}
+                            src={image.url}
+                            alt={image.alt || `Definition image ${index + 1}`}
+                            className="w-full rounded border"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
                   {!loading && !error && !data.content && (
                     <p className="text-sm text-gray-600 italic">No definition found.</p>
                   )}

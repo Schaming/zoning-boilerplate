@@ -18,7 +18,7 @@ type DefinitionRow = {
 // Recreate __dirname in ESM/tsx
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+1
 const DATA_PATH = path.resolve(__dirname, '../JSON/final/definitions.json'); // cu
 
 type DefinitionType = 'General' | 'Use' | 'General / Use';

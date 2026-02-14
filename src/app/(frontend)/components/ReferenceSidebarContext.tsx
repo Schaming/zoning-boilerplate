@@ -14,10 +14,17 @@ export type Amendment = {
 
 type ReferenceType = 'definition' | 'amendment';
 
+// Claude: Added images field to DefinitionData
 type DefinitionData = {
   type: 'definition';
   term: string;
   content: SerializedEditorState | null;
+  images?: Array<{
+    id: string | number;
+    url: string;
+    alt?: string;
+    filename?: string;
+  }> | null;
 };
 
 type AmendmentData = {
@@ -39,20 +46,26 @@ type ReferenceSidebarState = {
 
 export const ReferenceSidebarContext = createContext<ReferenceSidebarState | undefined>(undefined);
 
-async function fetchDefinitionText(term: string): Promise<SerializedEditorState | null> {
-  if (!term) return null;
+// Claude: Modified to return both text and images
+async function fetchDefinitionText(term: string): Promise<{ text: SerializedEditorState | null; images: any[] | null }> {
+  if (!term) return { text: null, images: null };
   const base = getClientSideURL();
   const url = `${base}/api/definitions?where[term][equals]=${encodeURIComponent(term)}&depth=2&limit=1`;
   const res = await fetch(url, { cache: 'no-store' });
-  if (!res.ok) return null;
+  if (!res.ok) return { text: null, images: null };
   const json = await res.json();
   const doc = json?.docs?.[0];
   const text = doc?.definitionContent?.text;
-  return text && typeof text === 'object' ? (text as SerializedEditorState) : null;
+  const images = doc?.definitionContent?.images;
+  return {
+    text: text && typeof text === 'object' ? (text as SerializedEditorState) : null,
+    images: Array.isArray(images) ? images : null
+  };
 }
 
+// Claude: Updated cache to store both text and images
 export function ReferenceSidebarProvider({ children }: { children: React.ReactNode }) {
-  const cache = useRef<Map<string, SerializedEditorState>>(new Map());
+  const cache = useRef<Map<string, { text: SerializedEditorState; images: any[] | null }>>(new Map());
   const [data, setData] = useState<ReferenceData>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -65,27 +78,27 @@ export function ReferenceSidebarProvider({ children }: { children: React.ReactNo
 
     const cached = cache.current.get(term);
     if (cached !== undefined) {
-      setData({ type: 'definition', term, content: cached });
+      setData({ type: 'definition', term, content: cached.text, images: cached.images });
       setLoading(false);
       return;
     }
 
     // Show loading state with term
-    setData({ type: 'definition', term, content: null });
+    setData({ type: 'definition', term, content: null, images: null });
     setLoading(true);
 
     try {
-      const content = await fetchDefinitionText(term);
-      if (content) {
-        cache.current.set(term, content);
-        setData({ type: 'definition', term, content });
+      const result = await fetchDefinitionText(term);
+      if (result.text) {
+        cache.current.set(term, { text: result.text, images: result.images });
+        setData({ type: 'definition', term, content: result.text, images: result.images });
       } else {
-        setData({ type: 'definition', term, content: null });
+        setData({ type: 'definition', term, content: null, images: null });
         setError('Definition not found');
       }
     } catch (err) {
       console.error('selectTerm failed', err);
-      setData({ type: 'definition', term, content: null });
+      setData({ type: 'definition', term, content: null, images: null });
       setError('Failed to load definition');
     } finally {
       setLoading(false);
